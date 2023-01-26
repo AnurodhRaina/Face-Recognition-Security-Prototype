@@ -10,6 +10,7 @@ A facial recognition security system that can recognize the user (presumably the
 <tr><td><b>faces </b></td><td> faces extracted from the image in images folder</td></tr>
 <tr><td><b>password.txt </b></td><td> for additional security and testing</td></tr>
 <tr><td><b>requirements.txt </b></td><td> set of required modules needed to be installed for this project</td></tr>
+<tr><td><b>capture.py</b></td><td> face detection and recognition script </td></tr>
 </table>
 <br>Still a work in progress and will be generalized so anyone can train the model and use the script if you have a set of images of yourself.
 
