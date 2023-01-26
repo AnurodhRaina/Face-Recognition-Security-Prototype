@@ -5,6 +5,8 @@ import numpy as np
 from PIL import Image
 from tensorflow import keras
 
+
+
 #setting up path to various required directories and images
 base_dir = os.path.dirname(__file__)
 image_path = str(base_dir +'\\'+'images')
@@ -67,28 +69,29 @@ for i in range(0, detections.shape[2]):
 #MODEL INPUT
 ##################
 
-face_to_check = Image.open(str(extracted_face_path + '\\' +input_file)).convert('L')
-face_to_check = face_to_check.resize((200,200))
-face_to_check= np.array(face_to_check)/255
-face_to_check =face_to_check.reshape((200,200,1))
+face_to_check = Image.open(str(extracted_face_path + '\\' +input_file))
+face_to_check = face_to_check.resize((224,224))
+face_to_check = np.array(face_to_check)
+# face_to_check = face_to_check.reshape((200,200,1))
 print(face_to_check)
 
 
 with open('password.txt') as f:
     correct_password = f.read()
 
-
-model = keras.models.load_model('face_predictor2.0')
-preds = model.predict(x=np.array([face_to_check,face_to_check]))
-print(preds)
-if preds[0]>0.6:
+model = keras.models.load_model('transfer_learning_trained_face_cnn_model.h5')
+# model = keras.models.load_model('face_predictor2.0')
+preds = model.predict(x=np.array([face_to_check]))
+print(preds[0])
+if preds[0][1]>0.8:
     print('Probability is higher than 50%, welcome anurodh')
 else:
     print('This is not anurodh, Please enter correct \
-            password or the system will turn')
+            password or the system will turn off')
     password = int(input('Enter password --> '))
     if password != int(correct_password):
           print('Odds are against you, Turning off system...')
+        #   os.system("shutdown /s /t 1")
     else:
           print('Welcome Anurodh')
           
