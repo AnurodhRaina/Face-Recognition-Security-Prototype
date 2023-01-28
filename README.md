@@ -28,7 +28,7 @@ A facial recognition security system that can recognize the user (presumably the
  - This is a task of extracting only the faces from these images as shown below.
 
  ![image](https://user-images.githubusercontent.com/51761306/214843945-f005cf5e-2a60-408d-aa6b-b75c9fe192c6.png)
-- This can be done by a lot of different ways although the most common one is the haarcascade_frontalface detection method. Consider this as a learning opportunity and perform the face extraction on your collected dataset. 
+- This can be done by a lot of different ways although the most common one is the haarcascade_frontalface detection method. Consider this as a learning opportunity and perform the face extraction on your collected dataset. (you can use the links in the bottom to get started)
 ### Group your dataset accordingly under a predefined structure and zip the 'headshots' folder as shown
   ```|
   |-Headshots.zip
